@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Task Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <h1>Student Task Manager</h1>
+      <p class="subtitle">Keep track of your study tasks</p>
+    </header>
+
+    <!-- Stats: total and completed counts -->
+    <section class="stats" aria-label="Task statistics">
+      <div class="stat-card">
+        <span class="stat-number" id="totalCount">0</span>
+        <span class="stat-label">Total Tasks</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" id="completedCount">0</span>
+        <span class="stat-label">Completed</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" id="pendingCount">0</span>
+        <span class="stat-label">Pending</span>
+      </div>
+    </section>
+
+    <!-- Form to add a new task -->
+    <form class="task-form" id="taskForm">
+      <input
+        type="text"
+        id="taskInput"
+        class="task-input"
+        placeholder="Add a new task, e.g. 'Finish math homework'"
+        autocomplete="off"
+        aria-label="Task title"
+      />
+      <button type="submit" class="add-button">Add Task</button>
+      <p class="error-message" id="errorMessage" role="alert"></p>
+    </form>
+
+    <!-- Filters: All / Pending / Completed -->
+    <section class="filters" aria-label="Filter tasks">
+      <button class="filter-button active" data-filter="all">All</button>
+      <button class="filter-button" data-filter="pending">Pending</button>
+      <button class="filter-button" data-filter="completed">Completed</button>
+    </section>
+
+    <!-- Task list -->
+    <ul class="task-list" id="taskList" aria-label="Task list"></ul>
+
+    <!-- Shown when there are no tasks to display -->
+    <p class="empty-state" id="emptyState">No tasks yet. Add one above to get started!</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

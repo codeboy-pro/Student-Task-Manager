@@ -1,0 +1,241 @@
+/* ===== Base / Dark Theme ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #121212;
+  color: #e0e0e0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.app {
+  width: 100%;
+  max-width: 560px;
+}
+
+/* ===== Header ===== */
+.app-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.app-header h1 {
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin-bottom: 0.3rem;
+}
+
+.subtitle {
+  color: #9e9e9e;
+  font-size: 0.95rem;
+}
+
+/* ===== Stats ===== */
+.stats {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.stat-card {
+  flex: 1;
+  background: #1e1e1e;
+  border: 1px solid #2e2e2e;
+  border-radius: 10px;
+  padding: 0.9rem 0.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #bb86fc;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #9e9e9e;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ===== Task Form ===== */
+.task-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.task-input {
+  flex: 1 1 220px;
+  background: #1e1e1e;
+  border: 1px solid #2e2e2e;
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  color: #ffffff;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.task-input::placeholder {
+  color: #6e6e6e;
+}
+
+.task-input:focus {
+  border-color: #bb86fc;
+}
+
+.add-button {
+  background: #bb86fc;
+  color: #121212;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.add-button:hover {
+  background: #d0a3ff;
+}
+
+.add-button:active {
+  transform: scale(0.97);
+}
+
+.error-message {
+  width: 100%;
+  color: #cf6679;
+  font-size: 0.85rem;
+  min-height: 1rem;
+}
+
+/* ===== Filters ===== */
+.filters {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.filter-button {
+  flex: 1;
+  background: #1e1e1e;
+  border: 1px solid #2e2e2e;
+  color: #9e9e9e;
+  border-radius: 8px;
+  padding: 0.6rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-button:hover {
+  border-color: #bb86fc;
+  color: #e0e0e0;
+}
+
+.filter-button.active {
+  background: #bb86fc;
+  border-color: #bb86fc;
+  color: #121212;
+  font-weight: 600;
+}
+
+/* ===== Task List ===== */
+.task-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.task-item {
+  background: #1e1e1e;
+  border: 1px solid #2e2e2e;
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.task-checkbox {
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: #bb86fc;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.task-title {
+  flex: 1;
+  font-size: 1rem;
+  word-break: break-word;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.task-item.completed .task-title {
+  color: #6e6e6e;
+  text-decoration: line-through;
+}
+
+.delete-button {
+  background: transparent;
+  border: none;
+  color: #cf6679;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.delete-button:hover {
+  background: rgba(207, 102, 121, 0.15);
+}
+
+/* ===== Empty State ===== */
+.empty-state {
+  text-align: center;
+  color: #6e6e6e;
+  padding: 2rem 1rem;
+  font-size: 0.95rem;
+  border: 1px dashed #2e2e2e;
+  border-radius: 10px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+  .stats {
+    flex-direction: row;
+  }
+
+  .stat-number {
+    font-size: 1.25rem;
+  }
+
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+}
